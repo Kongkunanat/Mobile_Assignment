@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.6 on darwin)" generated="2024-10-07T10:58:23.604571" rpa="false" schemaversion="5">
+<suite id="s1" name="Testcase" source="/Users/khongkhunanat.p/Documents/GitHub/Mobile_Assignment/testcases/testcase.robot">
+<test id="s1-t1" name="Verify that in cart has only one product" line="9">
+<kw name="Open App" owner="common" type="SETUP">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>remote_url=http://localhost:4723/wd/hub</arg>
+<arg>deviceName=Mobile_Assignment</arg>
+<arg>platformVersion=15.0</arg>
+<arg>platformName=Android</arg>
+<arg>appPackage=com.saucelabs.mydemoapp.rn</arg>
+<arg>appActivity=com.saucelabs.mydemoapp.rn.MainActivity</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.1/cli/args/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" start="2024-10-07T10:58:23.688732" elapsed="8.942941"/>
+</kw>
+<status status="PASS" start="2024-10-07T10:58:23.688535" elapsed="8.943410"/>
+</kw>
+<kw name="Select Item Page" owner="home_page">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-07T10:58:34.583531" level="INFO">xpath criteria: //android.view.ViewGroup[android.widget.TextView[contains(@text, 'Sauce Labs Backpack')]]</msg>
+<arg>${home_locator.item}</arg>
+<arg>30s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-07T10:58:32.633481" elapsed="1.950222"/>
+</kw>
+<kw name="Tap" owner="AppiumLibrary">
+<msg time="2024-10-07T10:58:34.584123" level="WARN">Keyword 'AppiumLibrary.Tap' is deprecated. Since selenium v4, use `Tap With Positions` keyword.</msg>
+<msg time="2024-10-07T10:58:35.169794" level="INFO">xpath criteria: //android.view.ViewGroup[android.widget.TextView[contains(@text, 'Sauce Labs Backpack')]]</msg>
+<arg>${home_locator.item}</arg>
+<doc>*DEPRECATED!!* Since selenium v4, use `Tap With Positions` keyword.</doc>
+<status status="PASS" start="2024-10-07T10:58:34.584059" elapsed="0.585917"/>
+</kw>
+<status status="PASS" start="2024-10-07T10:58:32.632723" elapsed="2.537448"/>
+</kw>
+<kw name="Button Add To Cart" owner="cart_page">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<arg>${cart_locator.button_add_cart}</arg>
+<arg>30s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-07T10:58:35.171337" elapsed="0.641426"/>
+</kw>
+<kw name="Tap" owner="AppiumLibrary">
+<msg time="2024-10-07T10:58:35.813239" level="WARN">Keyword 'AppiumLibrary.Tap' is deprecated. Since selenium v4, use `Tap With Positions` keyword.</msg>
+<arg>${cart_locator.button_add_cart}</arg>
+<doc>*DEPRECATED!!* Since selenium v4, use `Tap With Positions` keyword.</doc>
+<status status="PASS" start="2024-10-07T10:58:35.813177" elapsed="0.778002"/>
+</kw>
+<status status="PASS" start="2024-10-07T10:58:35.170725" elapsed="1.420666"/>
+</kw>
+<kw name="Icon Cart" owner="cart_page">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<arg>${cart_locator.icon_cart}</arg>
+<arg>30s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-07T10:58:36.592513" elapsed="0.100380"/>
+</kw>
+<kw name="Tap" owner="AppiumLibrary">
+<msg time="2024-10-07T10:58:36.693342" level="WARN">Keyword 'AppiumLibrary.Tap' is deprecated. Since selenium v4, use `Tap With Positions` keyword.</msg>
+<arg>${cart_locator.icon_cart}</arg>
+<doc>*DEPRECATED!!* Since selenium v4, use `Tap With Positions` keyword.</doc>
+<status status="PASS" start="2024-10-07T10:58:36.693278" elapsed="0.893777"/>
+</kw>
+<status status="PASS" start="2024-10-07T10:58:36.591922" elapsed="0.995332"/>
+</kw>
+<kw name="Check Count of Item in Cart" owner="checkout_page">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<arg>${checkout_locator.total_number}</arg>
+<arg>30s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-07T10:58:37.588397" elapsed="0.823828"/>
+</kw>
+<kw name="Get Webelements" owner="AppiumLibrary">
+<msg time="2024-10-07T10:58:38.496403" level="INFO">${elements} = [&lt;appium.webdriver.webelement.WebElement (session="b857225d-eb6c-4856-9df0-c5e4ab2b1d8a", element="00000000-0000-0225-ffff-ffff00000112")&gt;]</msg>
+<var>${elements}</var>
+<arg>${checkout_locator.total_number}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<status status="PASS" start="2024-10-07T10:58:38.412673" elapsed="0.083819"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-07T10:58:38.497279" level="INFO">${get_element} = &lt;appium.webdriver.webelement.WebElement (session="b857225d-eb6c-4856-9df0-c5e4ab2b1d8a", element="00000000-0000-0225-ffff-ffff00000112")&gt;</msg>
+<var>${get_element}</var>
+<arg>${elements}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-07T10:58:38.496855" elapsed="0.000467"/>
+</kw>
+<kw name="Get Text" owner="AppiumLibrary">
+<msg time="2024-10-07T10:58:38.511665" level="INFO">Element '&lt;appium.webdriver.webelement.WebElement (session="b857225d-eb6c-4856-9df0-c5e4ab2b1d8a", element="00000000-0000-0225-ffff-ffff00000112")&gt;' text is '1 item' </msg>
+<msg time="2024-10-07T10:58:38.511811" level="INFO">${get_text_from_element} = 1 item</msg>
+<var>${get_text_from_element}</var>
+<arg>${get_element}</arg>
+<doc>Get element text (for hybrid and mobile browser use `xpath` locator, others might cause problem)</doc>
+<status status="PASS" start="2024-10-07T10:58:38.497452" elapsed="0.014388"/>
+</kw>
+<kw name="Remove String" owner="String">
+<msg time="2024-10-07T10:58:38.512268" level="INFO">${price} = 1 </msg>
+<var>${price}</var>
+<arg>${get_text_from_element}</arg>
+<arg>item</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<status status="PASS" start="2024-10-07T10:58:38.512051" elapsed="0.000243"/>
+</kw>
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2024-10-07T10:58:38.512647" level="INFO">${price_value} = 1</msg>
+<var>${price_value}</var>
+<arg>${price}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="PASS" start="2024-10-07T10:58:38.512428" elapsed="0.000244"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Cart has only one product</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-07T10:58:38.513140" elapsed="0.000151"/>
+</kw>
+<arg>${price_value} == 1</arg>
+<arg>Log To Console</arg>
+<arg>Cart has only one product</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>Cart hasn't only one product</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-10-07T10:58:38.512820" elapsed="0.000528"/>
+</kw>
+<status status="PASS" start="2024-10-07T10:58:37.587837" elapsed="0.925593"/>
+</kw>
+<kw name="Close App" owner="common" type="TEARDOWN">
+<kw name="Close All Applications" owner="AppiumLibrary">
+<doc>Closes all open applications.</doc>
+<status status="PASS" start="2024-10-07T10:58:38.514037" elapsed="0.505601"/>
+</kw>
+<status status="PASS" start="2024-10-07T10:58:38.513754" elapsed="0.506102"/>
+</kw>
+<status status="PASS" start="2024-10-07T10:58:23.688229" elapsed="15.331826"/>
+</test>
+<status status="PASS" start="2024-10-07T10:58:23.605110" elapsed="15.415859"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Testcase">Testcase</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-10-07T10:58:34.584123" level="WARN">Keyword 'AppiumLibrary.Tap' is deprecated. Since selenium v4, use `Tap With Positions` keyword.</msg>
+<msg time="2024-10-07T10:58:35.813239" level="WARN">Keyword 'AppiumLibrary.Tap' is deprecated. Since selenium v4, use `Tap With Positions` keyword.</msg>
+<msg time="2024-10-07T10:58:36.693342" level="WARN">Keyword 'AppiumLibrary.Tap' is deprecated. Since selenium v4, use `Tap With Positions` keyword.</msg>
+</errors>
+</robot>
