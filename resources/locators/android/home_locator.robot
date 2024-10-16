@@ -1,4 +1,4 @@
 *** Variables ***
 
-##select item in menu page
-${home_locator.item}        xpath=//android.view.ViewGroup[android.widget.TextView[contains(@text, 'Sauce Labs Backpack')]]  
+${home_locator.product_title}        xpath=//android.view.ViewGroup[android.widget.TextView[@text='%%product_name%%']]  
+

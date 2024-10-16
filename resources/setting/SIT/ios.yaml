@@ -1,0 +1,7 @@
+remote_url : http://localhost:4723
+platformName : ios
+platformVersion : "18.0"
+deviceName : Test_Mobile
+udid : 8DFDE996-2823-4F2B-8E69-250E982BB529
+automationName : xcuitest
+app : /Users/khongkhunanat.p/Desktop/MyRNDemoApp.app

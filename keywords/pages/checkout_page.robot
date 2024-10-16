@@ -1,26 +1,17 @@
 *** Settings ***
 Resource    ../import.robot
 
-
-****Keywords******
-Check Count of Item in Cart
-    Wait Until Page Contains Element      ${checkout_locator.total_number}       30s    
-
-    ${elements}=    Get Webelements     ${checkout_locator.total_number}  
-    ${get_element}=    Set Variable    ${elements}[0]
-    ${get_text_from_element}=    Get Text    ${get_element}
-
-
-
-    ${price}=    Remove String     ${get_text_from_element}    item    
-    ${price_value}=    Convert To Integer   ${price}
-
-
-    Run Keyword If    ${price_value} == 1    Log To Console    Cart has only one product 
-    ...    ELSE    Log    Cart hasn't only one product 
+*** Keywords ***
+Verify the cart should has the product with amount
+    [Arguments]    ${product_amount}
+    AppiumLibrary.Wait until page contains element      ${checkout_locator.product_row}         ${GLOBAL_TIMOUT}    
+    ${count_element_product} =    AppiumLibrary.Get webelements    ${checkout_locator.product_row}  
+    ${amount_products} =    BuiltIn.Get length    ${count_element_product}
+    BuiltIn.Should Be Equal     ${amount_products}    ${product_amount} 
 
 
 
 
 
+    
     

@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.6 on darwin)" generated="2024-10-16T16:53:50.295067" rpa="false" schemaversion="5">
+<suite id="s1" name="Testcase" source="/Users/khongkhunanat.p/Documents/GitHub/Mobile_Assignment/testcases/testcase.robot">
+<test id="s1-t1" name="TC01-Should add the searched product to the cart with only one product" line="8">
+<kw name="Open my-demo-app application" owner="common" type="SETUP">
+<if>
+<branch type="IF" condition="'${platform}'=='android'">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>remote_url=${remote_url}</arg>
+<arg>deviceName=${deviceName}</arg>
+<arg>platformName=${platformName}</arg>
+<arg>platformVersion=${platformVersion}</arg>
+<arg>automationName=${automationName}</arg>
+<arg>appPackage=${appPackage}</arg>
+<arg>appActivity=${appActivity}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.1/cli/args/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" start="2024-10-16T16:53:50.394508" elapsed="4.655957"/>
+</kw>
+<status status="PASS" start="2024-10-16T16:53:50.394343" elapsed="4.656245"/>
+</branch>
+<branch type="ELSE">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>remote_url=${remote_url}</arg>
+<arg>deviceName=${deviceName}</arg>
+<arg>platformName=${platformName}</arg>
+<arg>platformVersion=${platformVersion}</arg>
+<arg>automationName=${automationName}</arg>
+<arg>udid=${udid}</arg>
+<arg>app=${app}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.1/cli/args/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="NOT RUN" start="2024-10-16T16:53:55.050873" elapsed="0.000024"/>
+</kw>
+<status status="NOT RUN" start="2024-10-16T16:53:55.050645" elapsed="0.000305"/>
+</branch>
+<status status="PASS" start="2024-10-16T16:53:50.394332" elapsed="4.656641"/>
+</if>
+<arg>${platform}</arg>
+<status status="PASS" start="2024-10-16T16:53:50.394225" elapsed="4.656825"/>
+</kw>
+<kw name="Select product by name" owner="home_page">
+<kw name="Replace String" owner="String">
+<msg time="2024-10-16T16:53:55.052561" level="INFO">${new_locator} = xpath=//android.view.ViewGroup[android.widget.TextView[@text='Sauce Labs Backpack']]</msg>
+<var>${new_locator}</var>
+<arg>${home_locator.product_title}</arg>
+<arg>%%product_name%%</arg>
+<arg>${product_name}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2024-10-16T16:53:55.052299" elapsed="0.000296"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:53:56.166497" level="INFO">xpath criteria: //android.view.ViewGroup[android.widget.TextView[@text='Sauce Labs Backpack']]</msg>
+<arg>${new_locator}</arg>
+<arg>${GLOBAL_TIMOUT}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T16:53:55.052738" elapsed="1.113852"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:53:56.168164" level="INFO">Clicking element 'xpath=//android.view.ViewGroup[android.widget.TextView[@text='Sauce Labs Backpack']]'.</msg>
+<msg time="2024-10-16T16:53:56.270687" level="INFO">xpath criteria: //android.view.ViewGroup[android.widget.TextView[@text='Sauce Labs Backpack']]</msg>
+<arg>${new_locator}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-16T16:53:56.166779" elapsed="0.103997"/>
+</kw>
+<arg>${TC01.search_product}</arg>
+<status status="PASS" start="2024-10-16T16:53:55.051424" elapsed="1.219459"/>
+</kw>
+<kw name="Add product to cart by quantity" owner="cart_detail_feture">
+<for flavor="IN RANGE">
+<iter>
+<kw name="Click increase product button" owner="cart_detail_page">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:53:57.282819" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]
+xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]</msg>
+<arg>${cart_detail_locator.button_plus}</arg>
+<arg>${GLOBAL_TIMOUT}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T16:53:56.273634" elapsed="1.009239"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:53:57.284111" level="INFO">Clicking element 'xpath=//android.view.ViewGroup[@content-desc="counter plus button"]'.</msg>
+<msg time="2024-10-16T16:53:57.370527" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]</msg>
+<arg>${cart_detail_locator.button_plus}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-16T16:53:57.282999" elapsed="0.087576"/>
+</kw>
+<status status="PASS" start="2024-10-16T16:53:56.273348" elapsed="1.097270"/>
+</kw>
+<var name="${amount}">0</var>
+<status status="PASS" start="2024-10-16T16:53:56.273132" elapsed="1.097499"/>
+</iter>
+<iter>
+<kw name="Click increase product button" owner="cart_detail_page">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:53:58.192053" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]</msg>
+<arg>${cart_detail_locator.button_plus}</arg>
+<arg>${GLOBAL_TIMOUT}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T16:53:57.370895" elapsed="0.821216"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:53:58.193446" level="INFO">Clicking element 'xpath=//android.view.ViewGroup[@content-desc="counter plus button"]'.</msg>
+<msg time="2024-10-16T16:53:58.286312" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]</msg>
+<arg>${cart_detail_locator.button_plus}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-16T16:53:58.192315" elapsed="0.094092"/>
+</kw>
+<status status="PASS" start="2024-10-16T16:53:57.370781" elapsed="0.915728"/>
+</kw>
+<var name="${amount}">1</var>
+<status status="PASS" start="2024-10-16T16:53:57.370699" elapsed="0.915847"/>
+</iter>
+<iter>
+<kw name="Click increase product button" owner="cart_detail_page">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:53:58.869168" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]</msg>
+<arg>${cart_detail_locator.button_plus}</arg>
+<arg>${GLOBAL_TIMOUT}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T16:53:58.287646" elapsed="0.581619"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:53:58.871114" level="INFO">Clicking element 'xpath=//android.view.ViewGroup[@content-desc="counter plus button"]'.</msg>
+<msg time="2024-10-16T16:53:58.955058" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]</msg>
+<arg>${cart_detail_locator.button_plus}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-16T16:53:58.869470" elapsed="0.085673"/>
+</kw>
+<status status="PASS" start="2024-10-16T16:53:58.286965" elapsed="0.668258"/>
+</kw>
+<var name="${amount}">2</var>
+<status status="PASS" start="2024-10-16T16:53:58.286704" elapsed="0.668544"/>
+</iter>
+<iter>
+<kw name="Click increase product button" owner="cart_detail_page">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:53:59.528998" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]</msg>
+<arg>${cart_detail_locator.button_plus}</arg>
+<arg>${GLOBAL_TIMOUT}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T16:53:58.955580" elapsed="0.573644"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:53:59.531304" level="INFO">Clicking element 'xpath=//android.view.ViewGroup[@content-desc="counter plus button"]'.</msg>
+<msg time="2024-10-16T16:53:59.624915" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]</msg>
+<arg>${cart_detail_locator.button_plus}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-16T16:53:59.529505" elapsed="0.095456"/>
+</kw>
+<status status="PASS" start="2024-10-16T16:53:58.955441" elapsed="0.669567"/>
+</kw>
+<var name="${amount}">3</var>
+<status status="PASS" start="2024-10-16T16:53:58.955343" elapsed="0.669678"/>
+</iter>
+<iter>
+<kw name="Click increase product button" owner="cart_detail_page">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:54:00.195905" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]</msg>
+<arg>${cart_detail_locator.button_plus}</arg>
+<arg>${GLOBAL_TIMOUT}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T16:53:59.625617" elapsed="0.570389"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:54:00.197919" level="INFO">Clicking element 'xpath=//android.view.ViewGroup[@content-desc="counter plus button"]'.</msg>
+<msg time="2024-10-16T16:54:00.288394" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]</msg>
+<arg>${cart_detail_locator.button_plus}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-16T16:54:00.196273" elapsed="0.092227"/>
+</kw>
+<status status="PASS" start="2024-10-16T16:53:59.625361" elapsed="0.663251"/>
+</kw>
+<var name="${amount}">4</var>
+<status status="PASS" start="2024-10-16T16:53:59.625095" elapsed="0.663554"/>
+</iter>
+<iter>
+<kw name="Click increase product button" owner="cart_detail_page">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:54:00.842203" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]</msg>
+<arg>${cart_detail_locator.button_plus}</arg>
+<arg>${GLOBAL_TIMOUT}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T16:54:00.289601" elapsed="0.552705"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:54:00.844264" level="INFO">Clicking element 'xpath=//android.view.ViewGroup[@content-desc="counter plus button"]'.</msg>
+<msg time="2024-10-16T16:54:00.936572" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]</msg>
+<arg>${cart_detail_locator.button_plus}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-16T16:54:00.842529" elapsed="0.094126"/>
+</kw>
+<status status="PASS" start="2024-10-16T16:54:00.289169" elapsed="0.647569"/>
+</kw>
+<var name="${amount}">5</var>
+<status status="PASS" start="2024-10-16T16:54:00.288824" elapsed="0.647939"/>
+</iter>
+<iter>
+<kw name="Click increase product button" owner="cart_detail_page">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:54:01.482024" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]</msg>
+<arg>${cart_detail_locator.button_plus}</arg>
+<arg>${GLOBAL_TIMOUT}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T16:54:00.937170" elapsed="0.544899"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:54:01.482780" level="INFO">Clicking element 'xpath=//android.view.ViewGroup[@content-desc="counter plus button"]'.</msg>
+<msg time="2024-10-16T16:54:01.570392" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]</msg>
+<arg>${cart_detail_locator.button_plus}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-16T16:54:01.482163" elapsed="0.088271"/>
+</kw>
+<status status="PASS" start="2024-10-16T16:54:00.937020" elapsed="0.633454"/>
+</kw>
+<var name="${amount}">6</var>
+<status status="PASS" start="2024-10-16T16:54:00.936877" elapsed="0.633608"/>
+</iter>
+<iter>
+<kw name="Click increase product button" owner="cart_detail_page">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:54:02.683339" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]</msg>
+<arg>${cart_detail_locator.button_plus}</arg>
+<arg>${GLOBAL_TIMOUT}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T16:54:01.570751" elapsed="1.112736"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:54:02.685634" level="INFO">Clicking element 'xpath=//android.view.ViewGroup[@content-desc="counter plus button"]'.</msg>
+<msg time="2024-10-16T16:54:02.774965" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]</msg>
+<arg>${cart_detail_locator.button_plus}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-16T16:54:02.683783" elapsed="0.091367"/>
+</kw>
+<status status="PASS" start="2024-10-16T16:54:01.570632" elapsed="1.204703"/>
+</kw>
+<var name="${amount}">7</var>
+<status status="PASS" start="2024-10-16T16:54:01.570546" elapsed="1.204856"/>
+</iter>
+<iter>
+<kw name="Click increase product button" owner="cart_detail_page">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:54:03.341049" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]</msg>
+<arg>${cart_detail_locator.button_plus}</arg>
+<arg>${GLOBAL_TIMOUT}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T16:54:02.776823" elapsed="0.564279"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:54:03.342337" level="INFO">Clicking element 'xpath=//android.view.ViewGroup[@content-desc="counter plus button"]'.</msg>
+<msg time="2024-10-16T16:54:03.425002" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="counter plus button"]</msg>
+<arg>${cart_detail_locator.button_plus}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-16T16:54:03.341217" elapsed="0.083884"/>
+</kw>
+<status status="PASS" start="2024-10-16T16:54:02.776180" elapsed="0.649027"/>
+</kw>
+<var name="${amount}">8</var>
+<status status="PASS" start="2024-10-16T16:54:02.775667" elapsed="0.649575"/>
+</iter>
+<var>${amount}</var>
+<value>${increase_product_quantity}-1</value>
+<status status="PASS" start="2024-10-16T16:53:56.272870" elapsed="7.152418"/>
+</for>
+<kw name="Click add to cart button" owner="cart_detail_page">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<arg>${cart_detail_locator.button_add_to_cart}</arg>
+<arg>${GLOBAL_TIMOUT}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T16:54:03.426156" elapsed="0.655866"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:54:04.084626" level="INFO">Clicking element 'accessibility_id=Add To Cart button'.</msg>
+<arg>${cart_detail_locator.button_add_to_cart}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-16T16:54:04.082466" elapsed="0.091144"/>
+</kw>
+<status status="PASS" start="2024-10-16T16:54:03.425563" elapsed="0.748252"/>
+</kw>
+<arg>${TC01.increase_product_quantity}</arg>
+<status status="PASS" start="2024-10-16T16:53:56.271737" elapsed="7.902190"/>
+</kw>
+<kw name="Click icon cart" owner="cart_detail_page">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<arg>${cart_detail_locator.icon_cart}</arg>
+<arg>${GLOBAL_TIMOUT}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T16:54:04.175194" elapsed="0.035359"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:54:04.214945" level="INFO">Clicking element 'accessibility_id=cart badge'.</msg>
+<arg>${cart_detail_locator.icon_cart}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-16T16:54:04.211101" elapsed="0.677037"/>
+</kw>
+<status status="PASS" start="2024-10-16T16:54:04.174732" elapsed="0.713611"/>
+</kw>
+<kw name="Verify the cart should has the product with amount" owner="checkout_page">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-16T16:54:04.968384" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="product row"]</msg>
+<arg>${checkout_locator.product_row}</arg>
+<arg>${GLOBAL_TIMOUT}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T16:54:04.890004" elapsed="0.078482"/>
+</kw>
+<kw name="Get Webelements" owner="AppiumLibrary">
+<msg time="2024-10-16T16:54:05.577408" level="INFO">xpath criteria: //android.view.ViewGroup[@content-desc="product row"]</msg>
+<msg time="2024-10-16T16:54:05.577503" level="INFO">${count_element_product} = [&lt;appium.webdriver.webelement.WebElement (session="0f88cb49-9518-49b7-8be5-e8ed9c98a90b", element="00000000-0000-0110-ffff-ffff000000f2")&gt;]</msg>
+<var>${count_element_product}</var>
+<arg>${checkout_locator.product_row}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<status status="PASS" start="2024-10-16T16:54:04.968718" elapsed="0.608803"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-10-16T16:54:05.577838" level="INFO">Length is 1.</msg>
+<msg time="2024-10-16T16:54:05.577878" level="INFO">${amount_products} = 1</msg>
+<var>${amount_products}</var>
+<arg>${count_element_product}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-10-16T16:54:05.577737" elapsed="0.000151"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${amount_products}</arg>
+<arg>${product_amount}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-10-16T16:54:05.578006" elapsed="0.000247"/>
+</kw>
+<arg>${TC01.product_amount}</arg>
+<status status="PASS" start="2024-10-16T16:54:04.888935" elapsed="0.689383"/>
+</kw>
+<kw name="Close my-demo-app application" owner="common" type="TEARDOWN">
+<kw name="Close Application" owner="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" start="2024-10-16T16:54:05.578688" elapsed="0.167348"/>
+</kw>
+<status status="PASS" start="2024-10-16T16:54:05.578546" elapsed="0.167637"/>
+</kw>
+<status status="PASS" start="2024-10-16T16:53:50.393898" elapsed="15.352397"/>
+</test>
+<status status="PASS" start="2024-10-16T16:53:50.295961" elapsed="15.450841"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Testcase">Testcase</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

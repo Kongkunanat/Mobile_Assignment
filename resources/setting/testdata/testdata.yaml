@@ -1,0 +1,4 @@
+TC01:
+  search_product : "Sauce Labs Backpack"
+  product_amount : 1
+  increase_product_quantity : 10

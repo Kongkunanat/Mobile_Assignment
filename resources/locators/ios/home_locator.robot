@@ -1,4 +1,4 @@
 *** Variables ***
 
-##select item in menu page
-${home_locator.item}        accessibility_id=Sauce Labs Backpack 
+${home_locator.product_title}        accessibility_id=%%product_name%%
+                                            
